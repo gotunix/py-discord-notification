@@ -1,0 +1,23 @@
+services:
+  discord-notifier:
+    build: .
+    container_name: discord_notifier
+    restart: unless-stopped
+
+    # Map the internal server port to the host
+    ports:
+      - "${SERVER_PORT:-8765}:8765"
+
+    # Load environment variables from a .env file
+    env_file:
+      - .env
+
+    # Optionally mount the src for development (uncomment if needed)
+    # volumes:
+    #   - ./src:/app/src
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8765/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

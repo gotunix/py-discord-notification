@@ -1,0 +1,11 @@
+# Discord bot
+discord.py>=2.3.2
+
+# Pyramid WSGI framework
+pyramid>=2.0
+
+# Optional: load .env files automatically
+python-dotenv>=1.0.0
+
+# Optional: production WSGI server (replace wsgiref)
+# waitress>=3.0.0
